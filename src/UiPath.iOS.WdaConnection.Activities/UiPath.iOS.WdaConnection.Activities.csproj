@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net8.0-windows;net8.0</TargetFrameworks>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>UiPath.iOS.WdaConnection.Activities</RootNamespace>
+    <AssemblyName>UiPath.iOS.WdaConnection.Activities</AssemblyName>
+    <UseWindowsForms Condition="'$(TargetFramework)' == 'net8.0-windows'">true</UseWindowsForms>
+    <!-- Enable Windows targeting for cross-platform development -->
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <!-- Disable auto-generated assembly info to use manual AssemblyInfo.cs -->
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    
+    <!-- Package Information -->
+    <PackageId>UiPath.iOS.WdaConnection.Activities</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>UiPath</Authors>
+    <Company>UiPath</Company>
+    <Description>UiPath Custom Activity package for running WDA on iOS devices from Windows using go-ios CLI wrapper.</Description>
+    <Copyright>Copyright © 2024</Copyright>
+    <PackageTags>UiPath;iOS;WDA;WebDriverAgent;Automation;Mobile</PackageTags>
+    
+    <!-- UiPath Activity Settings -->
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- UiPath Workflow dependencies from UiPath Official feed -->
+    <PackageReference Include="UiPath.Workflow.Runtime" Version="6.0.3" />
+    
+    <!-- JSON serialization -->
+    <PackageReference Include="System.Text.Json" Version="8.0.5" />
+  </ItemGroup>
+
+  <!-- Embedded Resources for go-ios -->
+  <ItemGroup>
+    <None Include="Resources\**\*" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <!-- go-ios executable as Embedded Resource -->
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\go-ios.exe" LogicalName="UiPath.iOS.WdaConnection.Activities.Resources.go-ios.exe" Condition="Exists('Resources\go-ios.exe')" />
+  </ItemGroup>
+
+</Project>

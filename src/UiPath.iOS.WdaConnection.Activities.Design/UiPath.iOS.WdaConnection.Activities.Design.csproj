@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>UiPath.iOS.WdaConnection.Activities.Design</RootNamespace>
+    <AssemblyName>UiPath.iOS.WdaConnection.Activities.Design</AssemblyName>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <!-- Enable Windows targeting for cross-platform development -->
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <!-- Disable auto-generated assembly info to use manual AssemblyInfo.cs -->
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    
+    <!-- Package Information -->
+    <PackageId>UiPath.iOS.WdaConnection.Activities.Design</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>UiPath</Authors>
+    <Company>UiPath</Company>
+    <Description>Designer metadata for UiPath iOS WDA Connection Activities.</Description>
+    <Copyright>Copyright © 2024</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\UiPath.iOS.WdaConnection.Activities\UiPath.iOS.WdaConnection.Activities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- UiPath Workflow dependencies from UiPath Official feed -->
+    <PackageReference Include="UiPath.Workflow" Version="6.0.3" />
+  </ItemGroup>
+
+  <!-- Designer Resources -->
+  <ItemGroup>
+    <Resource Include="Themes\**\*.xaml" />
+    <Resource Include="Icons\**\*.png" />
+  </ItemGroup>
+
+</Project>

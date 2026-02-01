@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>UiPath.iOS.WdaConnection.Activities</id>
+    <version>1.0.0</version>
+    <title>UiPath iOS WDA Connection Activities</title>
+    <authors>UiPath</authors>
+    <owners>UiPath</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/uipath/ios-wda-connection</projectUrl>
+    <description>
+      UiPath Custom Activity package for establishing WebDriverAgent (WDA) connections to iOS devices from Windows.
+      
+      This package provides activities to:
+      - List connected iOS devices
+      - Start and manage iOS tunnels (for iOS 17+)
+      - Launch WebDriverAgent on iOS devices
+      - Set up port forwarding for WDA communication
+      - Check WDA server status
+      
+      Use the WdaConnectionScope activity to automatically manage the entire WDA connection lifecycle,
+      or use individual activities for fine-grained control.
+      
+      Requires go-ios CLI (embedded or custom path).
+    </description>
+    <summary>UiPath activities for iOS WDA connection management using go-ios CLI.</summary>
+    <releaseNotes>
+      Version 1.0.0:
+      - Initial release
+      - WdaConnectionScope for automatic connection management
+      - Individual activities: GetDeviceList, StartTunnel, StartWda, StartPortForward, StopManagedProcess, CheckWdaStatus
+      - Support for iOS 17+ tunnel requirements
+      - Embedded go-ios executable support
+    </releaseNotes>
+    <copyright>Copyright © 2026 UiPath</copyright>
+    <tags>UiPath Activity iOS WDA WebDriverAgent Mobile Automation go-ios</tags>
+    <dependencies>
+      <group targetFramework="net461">
+        <dependency id="UiPath.Workflow" version="23.10.0" />
+        <dependency id="System.Text.Json" version="8.0.0" />
+      </group>
+      <group targetFramework="net6.0-windows">
+        <dependency id="UiPath.Workflow" version="23.10.0" />
+        <dependency id="System.Text.Json" version="8.0.0" />
+      </group>
+      <group targetFramework="net8.0-windows">
+        <dependency id="UiPath.Workflow" version="23.10.0" />
+        <dependency id="System.Text.Json" version="8.0.0" />
+      </group>
+    </dependencies>
+    <contentFiles>
+      <files include="any/any/Resources/**/*" buildAction="EmbeddedResource" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <!-- Main assembly -->
+    <file src="bin\Release\net461\UiPath.iOS.WdaConnection.Activities.dll" target="lib\net461" />
+    <file src="bin\Release\net6.0-windows\UiPath.iOS.WdaConnection.Activities.dll" target="lib\net6.0-windows" />
+    <file src="bin\Release\net8.0-windows\UiPath.iOS.WdaConnection.Activities.dll" target="lib\net8.0-windows" />
+    
+    <!-- Designer assembly -->
+    <file src="..\UiPath.iOS.WdaConnection.Activities.Design\bin\Release\net461\UiPath.iOS.WdaConnection.Activities.Design.dll" target="lib\net461" />
+    <file src="..\UiPath.iOS.WdaConnection.Activities.Design\bin\Release\net6.0-windows\UiPath.iOS.WdaConnection.Activities.Design.dll" target="lib\net6.0-windows" />
+    <file src="..\UiPath.iOS.WdaConnection.Activities.Design\bin\Release\net8.0-windows\UiPath.iOS.WdaConnection.Activities.Design.dll" target="lib\net8.0-windows" />
+    
+    <!-- Embedded resources (go-ios executable) -->
+    <file src="Resources\**\*" target="contentFiles\any\any\Resources" />
+  </files>
+</package>
