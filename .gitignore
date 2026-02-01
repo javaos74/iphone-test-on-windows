@@ -157,5 +157,4 @@ ServiceFabricBackup/
 BenchmarkDotNet.Artifacts/
 
 ## Project-specific
-# go-ios executable (should be downloaded separately)
-src/UiPath.iOS.WdaConnection.Activities/Resources/go-ios.exe
+# (go-ios.exe is now included in the package for distribution)
